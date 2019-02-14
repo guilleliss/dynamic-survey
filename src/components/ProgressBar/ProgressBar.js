@@ -4,7 +4,7 @@ import './ProgressBar.css'
 const ProgressBar = props => (
 	<div className="progressbar mb-5">
 		<div className="progress-bar-inner" 
-			style={{'width': 100 * (props.currentPage / props.totalPages) + '%'}}></div>
+			style={{'width': 100 * ((props.currentPage - 1)/ props.totalPages) + '%'}}></div>
 	</div>
 )
 

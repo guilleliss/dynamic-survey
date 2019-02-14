@@ -8,13 +8,21 @@ class SurveyQuestion extends Component {
 
 		switch(this.props.type) {
 			case('text'): 
-				answers = <input type="text" className="form-control" />
+				answers = <input type="text" 
+					className="form-control"
+					placeholder={this.props.placeholder}
+					value={this.props.answer}
+					onChange={event => this.props.inputChanged(event, this.props.index)} />
 				break;
 			case('select'):
 				answers = (
-					<select className="form-control">
+					<select className="form-control"
+						onChange={event => this.props.inputChanged(event, this.props.index)}
+						defaultValue={this.props.answer} >
 						{this.props.options.map((option, i) => 
-							<option key={i} value={option}>{option}</option>
+							<option key={i} value={option} >
+								{option}
+							</option>
 						)}
 					</select>
 				)
@@ -23,6 +31,8 @@ class SurveyQuestion extends Component {
 				answers = this.props.options.map(option => (
 					<div key={option} className="form-check">
 						<input value={option} 
+							onChange={event => this.props.inputChanged(event, this.props.index)}
+							defaultChecked={this.props.answer}
 							id={option}  
 							type="radio" 
 							name="customRadio" 
@@ -47,9 +57,15 @@ class SurveyQuestion extends Component {
 }
 
 SurveyQuestion.propTypes = {
+	index: PropTypes.number.isRequired,
 	type: PropTypes.string.isRequired,
 	question: PropTypes.string.isRequired,
 	options: PropTypes.array,
+	inputChanged: PropTypes.func
+}
+
+SurveyQuestion.defaultProps = {
+	placeholder: "Type here"
 }
 
 export default SurveyQuestion
