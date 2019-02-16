@@ -5,8 +5,10 @@ const SurveySummary = props => (
 		<h2>Summary</h2>
 		{props.data.map((question, index) => (
 			<div className="card mt-4" key={index}>
-				<label>{question.question}</label>
-				<p className="card-text">{question.answer}</p>
+				<div className="card-body">
+					<h5 className="card-title">{question.question}</h5>
+					<p className="card-text">Answer: {question.answer}</p>
+				</div>
 			</div>
 		))}
 	</div>

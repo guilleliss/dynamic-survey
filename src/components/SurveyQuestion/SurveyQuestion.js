@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './SurveyQuestion.css';
 
 class SurveyQuestion extends Component {
+
 	render() {
 		let answers = {}
 
@@ -20,7 +21,7 @@ class SurveyQuestion extends Component {
 						onChange={event => this.props.inputChanged(event, this.props.index)}
 						defaultValue={this.props.answer} >
 						{this.props.options.map((option, i) => 
-							<option key={i} value={option} >
+							<option key={i} value={option}>
 								{option}
 							</option>
 						)}
@@ -32,7 +33,7 @@ class SurveyQuestion extends Component {
 					<div key={option} className="form-check">
 						<input value={option} 
 							onChange={event => this.props.inputChanged(event, this.props.index)}
-							defaultChecked={this.props.answer}
+							checked={option === this.props.answer}
 							id={option}  
 							type="radio" 
 							name="customRadio" 
