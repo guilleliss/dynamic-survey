@@ -4,17 +4,13 @@ import Survey from './components/Survey/Survey'
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="container">
-      	<div className="row">
+	render() {
+		return (
 			<BrowserRouter>
-	        	<Survey />
+				<Survey />
 			</BrowserRouter>
-		</div>
-      </div>
-    );
-  }
+		);
+	}
 }
 
 export default App;
